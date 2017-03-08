@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 describe('When testing the AppComponent', () => {
+
   describe('When calling the "getMessage" method', () => {
 
     it('Should return the correct string', () => {
@@ -26,7 +27,8 @@ describe('When testing the AppComponent', () => {
       const fixture = TestBed.createComponent(AppComponent);
       fixture.detectChanges();
       const debug = fixture.debugElement.query(By.css('p'));
-      expect(debug.nativeElement.textContent).toBe('Insert a dummy message here');
+      const element = <HTMLElement>debug.nativeElement;
+      expect(element.textContent).toBe('Insert a dummy message here');
     });
 
   });
